@@ -1,4 +1,4 @@
-# Smart Farm Dashboard
+# IOT Based Smart Farm System
 
 This is a React-based web application. Follow the instructions below to clone the project, install dependencies, and run it locally.
 
@@ -37,18 +37,19 @@ npm start
 ```
 
 📁 Project Structure
+
 smart-farm/
 ├── arduino-config/
-|  ├── Schematic/
-|  |  ├── Schematic-diagram.png/
-|  ├── smart-farm.ino/
-|  ├── lmic_project_config.h/
+│   ├── Schematic/
+│   │   └── Schematic-diagram.png
+│   ├── smart-farm.ino
+│   └── lmic_project_config.h
 ├── public/
 ├── src/
 ├── package-lock.json
 ├── package.json
 ├── README.md
-└── 
+
 
 # Arduino LoRa + DHT Sensor Project
 
