@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Smart Farm Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based web application. Follow the instructions below to clone the project, install dependencies, and run it locally.
 
-## Available Scripts
+## 🚀 Getting Started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+Before you begin, ensure you have the following installed on your machine:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Git](https://git-scm.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📥 Clone the Repository
 
-### `npm test`
+```bash
+git clone https://github.com/Victor-Kip/smart-farm.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###  📂 Navigate into the Project Directory
 
-### `npm run build`
+```bash
+cd smart-farm
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📦 Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+▶️ Run the App
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+📁 Project Structure
+smart-farm/
+├── arduino-config/
+|  ├── Schematic/
+|  |  ├── Schematic-diagram.png/
+|  ├── smart-farm.ino/
+|  ├── lmic_project_config.h/
+├── public/
+├── src/
+├── package-lock.json
+├── package.json
+├── README.md
+└── 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Arduino LoRa + DHT Sensor Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project integrates LoRaWAN communication using the MCCI LMIC library and environmental sensing using a DHT sensor (e.g., DHT11 or DHT22).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Included Libraries
 
-## Learn More
+The sketch uses the following Arduino libraries:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🔄 SPI
+- Used for communication with LoRa transceivers (e.g., SX1276).
+- Included by default with the Arduino IDE.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 📡 LMIC (MCCI LoRaWAN LMIC library)
+- Enables communication with LoRaWAN networks.
+- Library: [`MCCI LoRaWAN LMIC library`](https://github.com/mcci-catena/arduino-lmic)
 
-### Code Splitting
+### ⚙️ hal/hal.h
+- Part of the LMIC library. Provides hardware abstraction between the microcontroller and the LMIC stack.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🌡️ DHT
+- Used to read temperature and humidity from DHT sensors.
+- Library: [`DHT sensor library by Adafruit`](https://github.com/adafruit/DHT-sensor-library)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔧 Setup Instructions
 
-### Making a Progressive Web App
+### 1. Install Arduino IDE
+Download and install the [Arduino IDE](https://www.arduino.cc/en/software) if you haven't already.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2. Install Required Libraries
 
-### Advanced Configuration
+#### Through Library Manager:
+1. Open Arduino IDE
+2. Go to **Sketch > Include Library > Manage Libraries...**
+3. Search and install:
+   - `MCCI LoRaWAN LMIC library` by Terry Moore (MCCI)
+   - `DHT sensor library` by Adafruit
+   - `Adafruit Unified Sensor` (dependency for DHT)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Alternatively, install from GitHub:
+- [LMIC library](https://github.com/mcci-catena/arduino-lmic)
+- [DHT sensor library](https://github.com/adafruit/DHT-sensor-library)
 
-### Deployment
+### 3. Connect Hardware
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Hardware Components
+- DHT22 Sensor
+- Soil moisture sensor
+- ESP32
+- RFM95 (868MHz) - LoRa Transmitter
+- Light Dependent Resistor
+- Breadboard
+- Jumper Wires 
 
-### `npm run build` fails to minify
+- The schematic diagram is provided under arduino-config -> schematic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 4. Upload the Sketch
+
+- Open the sketch file in Arduino IDE.
+- Select your board and port.
+- Click **Upload**.
+
+---
+
+## 🚀 Run
+
+Once uploaded, the microcontroller will:
+- Connect with the LoRa Gateway
+- Read temperature and humidity from the DHT sensor.
+- Read Soil moisture from the soil moisture sensor
+- Read Light Intensity from LDR photoresistor
+- Encrypt the data
+- Send the data over LoRaWAN using the LMIC library which routes data to Firebase RTDB(Real Time Database).
+
+---
+
+## 📝 Notes
+
+- Ensure region frequency is correctly set in `lmic_project_config.h`.
+- Configure your LoRaWAN credentials (DevEUI, AppEUI, AppKey) in the sketch.
+
+---
+
+## 📜 License
+
+This project is open-source under the MIT License. See `LICENSE` file for details.
+
+
