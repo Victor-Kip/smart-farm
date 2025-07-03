@@ -33,7 +33,7 @@ h1 {
 
 .tab {
   background: transparent;
-  border: none;
+  border: 2px solid rgba(0, 0, 0, 0.2);
   padding: 12px 24px;
   margin: 0 5px;
   border-radius: 10px;
@@ -45,10 +45,12 @@ h1 {
 
 .tab:hover {
   background: rgba(255, 255, 255, 0.2);
+  border-color: #4caf50;
 }
 
 .tab.active {
   background: rgba(255, 255, 255, 0.3);
+  border-color: #4caf50;
   font-weight: bold;
 }
 
@@ -59,7 +61,7 @@ h1 {
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Card Styles */
@@ -128,13 +130,15 @@ h1 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
 /* Chart Sections */
-.chart-container {
+.chart-container,
+.analytics-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 30px;
 }
@@ -228,8 +232,10 @@ h1 {
   gap: 30px;
 }
 
+/* Stats Grid: span full width so cards line up horizontally on desktop */
 .stats-grid {
   display: grid;
+  grid-column: 1 / -1;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
@@ -346,6 +352,18 @@ h1 {
   
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-container,
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ensure stats span full width of the two-column layout */
+  .analytics-grid .stats-grid {
+    grid-column: 1 / -1;
   }
 }
 

@@ -15,7 +15,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [historicalData, setHistoricalData] = useState([]);
-  const [activeTab, setActiveTab] = useState('current');
+  const [activeTab, setActiveTab] = useState('data');
   const [dataRange, setDataRange] = useState('24h');
 
   useEffect(() => {
