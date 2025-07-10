@@ -2,6 +2,8 @@
 
 This is a React-based web application. Follow the instructions below to clone the project, install dependencies, and run it locally.
 
+Click this link to view the website - [Smart Farm App](https://smart-farm-dashboard-1.netlify.app/)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -38,6 +40,7 @@ npm start
 
 📁 Project Structure
 
+```
 smart-farm/
 ├── arduino-config/
 │   ├── Schematic/
@@ -49,7 +52,7 @@ smart-farm/
 ├── package-lock.json
 ├── package.json
 ├── README.md
-
+```
 
 # Arduino LoRa + DHT Sensor Project
 
